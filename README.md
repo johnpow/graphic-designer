@@ -1,7 +1,7 @@
-# README.md Generator
+# SVG Graphic Generator
 
 ## Description
-This README.md Generator helps users create a high quality README.md file by asking a series of questions to populate the content. It's easy to use and includes useful license badging.
+This SVG Graphic Generator helps users create a high quality SVG file by asking a series of questions to populate the text, shape, and colors. It's easy to use and fun!
 
 ## Table of Contents
 - [Usage](#usage)
@@ -14,19 +14,19 @@ This README.md Generator helps users create a high quality README.md file by ask
 ```bash
 node index.js
 ```
-- Answer the questions about your project.
-- Find the README.md file with all your responses.
-
-![alt text](./images/terminal.png)
+- Answer the questions about your graphic.
+![user terminal experience](./images/terminal.png)
+- Find the graphic built to your needs
+![sample graphic](./images/sample_image.png)
 
 ## Credits
-Pulled source code from [here](https://github.com/coding-boot-camp/potential-enigma), as well as used examples from our Week 9 learnings.
+This was built from learning the concepts from class week 10 on OOP.
 
 ## Features
-- Select license to get badging icon added to your readme!
-- No License will leave the license section blank
+- Try out different shapes and colors!
+- Use color names or hexadecimal for both letters and shape colors!
 
 ## Access
-Click to view repository: [README.md Generator](https://github.com/johnpow/professional-readme-generator).
+Click to view repository: [SVG Graphic Generator](https://github.com/johnpow/graphic-designer).
 
 Click to view video walkthrough: [Video Walkthrough](https://drive.google.com/file/d/1Sa25VWaP2ys03bQfssO1wItEPP0NMHAo/view).
