@@ -1,77 +1,41 @@
-// TODO: Include packages needed for this applicatio
 const inquirer = require("inquirer");
 const fs = require("fs");
-const gm = require('./utils/generateMarkdown.js');
+require('./lib/shapes.js');
+
+//used documentation for max input https://www.npmjs.com/package/inquirer-maxlength-input-prompt
+const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt')
+inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt)
+
 // TODO: Create an array of questions for user input
 const questions = [
   {
-    name: "projTitle",
-    message: "What is the title of your project?",
+    type: 'maxlength-input',
+    name: "lettersText",
+    message: "What letters would you like in your graphic? (enter up to 3 characters)",
+    response: "input",
+    maxLength: 3
+  },
+  {
+    name: "lettersColor",
+    message: "What color should the letters be? (enter a color keyword OR a hexadecimal number)",
     response: "input",
   },
   {
-    name: "projDesc",
-    message: "How would you describe your project?",
-    response: "input",
-  },
-  {
-    name: "instInstruct",
-    message: "What are the installation instructions?",
-    response: "input",
-  },
-  {
-    name: "useInfo",
-    message: "What is the usage information?",
-    response: "input",
-  },
-  {
-    name: "contGuide",
-    message: "What are the contribution guidelines?",
-    response: "input",
-  },
-  {
-    name: "testInstr",
-    message: "What are the test instructions?",
-    response: "input",
-  },
-  {
-    name: "licensePref",
-    message: "Which license would you like to use?",
+    name: "graphicShape",
+    message: "Which shape would you like?",
     type: "rawlist",
     choices: [
-      "Apache License 2.0",
-      "GNU General Public License v3.0",
-      "MIT License",
-      'BSD 2-Clause "Simplified" License',
-      'BSD 3-Clause "New" or "Revised" License',
-      "Boost Software License 1.0",
-      "Creative Commons Zero v1.0 Universal",
-      "Eclipse Public License 2.0",
-      "GNU Affero General Public License v3.0",
-      "GNU General Public License v2.0",
-      "GNU Lesser General Public License v2.1",
-      "Mozilla Public License 2.0",
-      "The Unlicense",
-      "None",
+      'Circle','Triangle','Square'
     ],
   },
   {
-    name: "gitHub",
-    message: "What is your GitHub username?",
-    response: "input",
-  },
-  {
-    name: "emailAddr",
-    message: "What is your email address?",
+    name: "graphicColor",
+    message: "What color should the shape be? (enter a color keyword OR a hexadecimal number)",
     response: "input",
   },
 ];
 
-// ,
-//
-//
-
-// TODO: Create a function to write README file
+//Create a function to write SVG file
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) => {
     if (err) {
@@ -82,11 +46,28 @@ function writeToFile(fileName, data) {
   });
 }
 
-// TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
 
-    writeToFile("./outputs/README.md", gm.generateMarkdown(answers));
+    if (answers.graphicShape === 'Triangle') {
+        const shape = new Triangle();
+        shape.setColor(graphicColor);
+        console.log(shape);
+        console.log(shape.render());
+        return;
+    } else if (answers.graphicShape === 'Cirle')  {
+      const shape = new Circle();
+      shape.setColor(graphicColor);
+      return console.log(shape);
+      // console.log(shape.render());
+    }
+    console.log(shape)
+    // const shape = new Triangle();
+    // console.log(shape)
+    // shape.setColor('blue')
+    // return writeFile('./dist/post.html', html);
+    
+    // writeToFile("./outputs/README.md", gm.generateShape(answers));
 
   });
 }
