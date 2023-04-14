@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const {Triangle, Circle, Square, generateGraphic} = require('./lib/shapes.js');
-
+const {Triangle, Circle, Square} = require('./lib/shapes.js');
+const {generateGraphic} = require('./lib/generateGraphic.js');
 //used documentation for max input https://www.npmjs.com/package/inquirer-maxlength-input-prompt
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt')
 inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt)
