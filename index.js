@@ -63,8 +63,7 @@ function init() {
     }
 
     this.shape.setColor(shapeData.graphicColor)
-    writeToFile(`./examples/test_${this.shape.lettersText}.svg`, generateGraphic(this.shape));
-    
+    writeToFile(`./examples/g_${this.shape.lettersText}.svg`, generateGraphic(this.shape));
     
 
   });
