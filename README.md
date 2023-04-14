@@ -15,6 +15,7 @@ This SVG Graphic Generator helps users create a high quality SVG file by asking 
 node index.js
 ```
 - Answer the questions about your graphic.
+
 ![user terminal experience](./images/terminal.png)
 - Find the graphic built to your needs
 
