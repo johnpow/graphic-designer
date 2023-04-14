@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-require('./lib/shapes.js');
+const {Triangle, Circle, Square, generateGraphic} = require('./lib/shapes.js');
 
 //used documentation for max input https://www.npmjs.com/package/inquirer-maxlength-input-prompt
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt')
@@ -47,27 +47,25 @@ function writeToFile(fileName, data) {
 }
 
 function init() {
-  inquirer.prompt(questions).then((answers) => {
+  inquirer.prompt(questions).then((shapeData) => {
 
-    if (answers.graphicShape === 'Triangle') {
-        const shape = new Triangle();
-        shape.setColor(graphicColor);
-        console.log(shape);
-        console.log(shape.render());
-        return;
-    } else if (answers.graphicShape === 'Cirle')  {
-      const shape = new Circle();
-      shape.setColor(graphicColor);
-      return console.log(shape);
-      // console.log(shape.render());
-    }
-    console.log(shape)
-    // const shape = new Triangle();
-    // console.log(shape)
-    // shape.setColor('blue')
-    // return writeFile('./dist/post.html', html);
     
-    // writeToFile("./outputs/README.md", gm.generateShape(answers));
+
+    if (shapeData.graphicShape === 'Triangle') {
+      const shape = new Triangle(shapeData.lettersText,shapeData.lettersColor,shapeData.graphicColor);
+      this.shape = shape;
+    } else if (shapeData.graphicShape === 'Circle')  {
+      const shape = new Circle(shapeData.lettersText,shapeData.lettersColor,shapeData.graphicColor);
+      this.shape = shape;
+    } else if (shapeData.graphicShape === 'Square')  {
+      const shape = new Square(shapeData.lettersText,shapeData.lettersColor,shapeData.graphicColor);
+      this.shape = shape;
+    }
+
+    this.shape.setColor(shapeData.graphicColor)
+    writeToFile(`./examples/test_${this.shape.lettersText}.svg`, generateGraphic(this.shape));
+    
+    
 
   });
 }
