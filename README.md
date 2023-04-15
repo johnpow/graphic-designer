@@ -31,4 +31,4 @@ This was built from learning the concepts from class week 10 on OOP.
 ## Access
 Click to view repository: [SVG Graphic Generator](https://github.com/johnpow/graphic-designer).
 
-Click to view video walkthrough: [Video Walkthrough](https://drive.google.com/file/d/10evWrao8BwyTMNoaQYmkb-h_ByzMNewk/view).
+Click to view video walkthrough: [Video Walkthrough](https://drive.google.com/file/d/1Log1IrLNXK65StmYSmPhdSY3SNjPHLpU/view).
